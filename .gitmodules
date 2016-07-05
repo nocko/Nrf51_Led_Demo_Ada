@@ -1,0 +1,3 @@
+[submodule "zfp-nrf51"]
+	path = zfp-nrf51
+	url = ../zfp-nrf51
