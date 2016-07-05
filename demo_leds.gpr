@@ -9,11 +9,12 @@ project Demo_Leds is
    Build_Mode : Build_Modes := external ("LEDs_Build_Mode", "debug");
 
    package Compiler is
+      ADAFLAGS := ("-gnatg", "-gnatp", "-gnatn2");
       case Build_Mode is
          when "debug" =>
-            for Default_Switches ("ada") use ("-O0", "-gnatwa", "-gnatQ", "-gnatw.X");
+            for Default_Switches ("ada") use ("-O0", "-gnatwa", "-gnatQ", "-gnatw.X") & ADAFLAGS;
          when "release" =>
-            for Default_Switches ("ada") use ("-O2", "-gnatQ", "-gnatw.X");
+            for Default_Switches ("ada") use ("-O2", "-gnatQ", "-gnatw.X") & ADAFLAGS;
       end case;
    end Compiler;
 
@@ -38,4 +39,3 @@ project Demo_Leds is
    --  end Ide;
 
 end Demo_Leds;
-
